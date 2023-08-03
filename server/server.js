@@ -26,7 +26,6 @@ connection.connect((err, resul)=>{
 
  app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-// app.use(express.static("../client"));
 const path = require("path");
 
 const clientPath = path.join(__dirname, "../client");
@@ -39,7 +38,7 @@ app.get("/", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.json(result); // إرجاع عناوين المنشورات فقط
+      res.json(result); 
     }
   });
 });
@@ -50,22 +49,12 @@ app.get("/post/:post_id", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.json(result[0]); // إرجاع المنشور الخاص بالـ ID المحدد
+      res.json(result[0]); 
     }
   });
 });
 
-// app.get("/", (req, res)=>{
-//   connection.query("SELECT * FROM Posts", (err, result)=>{
-//     if(err){
-//       console.log(err);
-//     }else{
-//      res.send(result);
-//     }
-//   });
-// });
 
-// 1. إضافة منشور جديد:
 app.post("/add-post", (req, res) => {
   const { title, content } = req.body;
   const sqlQuery = "INSERT INTO Posts (title, content) VALUES (?, ?)";
@@ -81,7 +70,6 @@ app.post("/add-post", (req, res) => {
 });
 
 
-// 2. إضافة تعليق على منشور معين:
 app.post("/add-comment/:postId", (req, res) => {
   const { postId } = req.params;
   const { commentText } = req.body;
@@ -99,7 +87,6 @@ app.post("/add-comment/:postId", (req, res) => {
 });
 
 
-// 3. عرض جميع التعليقات على منشور معين:
 app.get("/comments/:postId", (req, res) => {
   const { postId } = req.params;
   const sqlQuery = "SELECT * FROM Comments WHERE post_id = ?";
@@ -114,9 +101,6 @@ app.get("/comments/:postId", (req, res) => {
   });
 });
 
-
-
-// connection.end();
 
 app.listen(PORT, ()=>{
   console.log(`Server has started on PORT ${PORT}...`);
