@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog App</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+
+<body>
+
+  <div class="dad">
+    <h1>Welcome to the Blog App</h1>
+
+    <div class="box box-1">
+      <ul id="postsList"></ul>
+      <input type="text" id="postIdInput" placeholder="Enter Post ID..">
+      <button onclick="getPost()">Get Post</button>
+      <div id="postDisplay">
+      </div>
+    </div>
+  
+  
+  <div class="boxes">
+  <div class="comment-box">
+    <div class="box box-2">
+      <h2>Add a Comment</h2>
+      <form id="addCommentForm">
+        <input type="text" id="postId" placeholder="Post ID..">
+        <textarea id="commentContent" placeholder="Comment.."></textarea>
+        <button type="submit">Add Comment</button>
+      </form>
+    </div>
+  
+    <div class="box box-3">
+      <h2>Comments on Post</h2>
+      <input type="text" id="commentsPostId" placeholder="Post ID..">
+      <button onclick="getComments()">Get Comments</button>
+      <ul id="commentsList"></ul>
+    </div>
+  </div>
+  
+  <hr>
+    
+    <div class="box box-4">
+      <h2>Add a New Post</h2>
+      <form id="addPostForm">
+        <input type="text" id="postTitle" placeholder="Post Title..">
+        <textarea id="postContent" placeholder="Post Content.."></textarea>
+        <button type="submit">Add Post</button>
+      </form>
+    </div>
+  </div>
+    
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
+
