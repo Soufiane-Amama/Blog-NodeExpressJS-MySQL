@@ -10,7 +10,6 @@ const postDisplay = document.getElementById("postDisplay");
 const url = "http://localhost:3000";
 
 
-// استرجاع عناوين المنشورات
 fetch(url)
   .then((response) => response.json())
   .then((data) => {
@@ -23,7 +22,6 @@ fetch(url)
   })
   .catch((error) => console.error("Error fetching data:", error));
 
-// استرجاع المنشور بناءً على الـ ID المدخل
 function getPost() {
   const postId = postIdInput.value;
   fetch(`${url}/post/${postId}`)
@@ -65,7 +63,7 @@ addPostForm.addEventListener("submit", (e) => {
   .then(message => {
     if(message === "New post added successfully!"){
       alert("Okyy!! " + message);
-      location.reload(); // اعادة تحميل الصفحة بعد الاضافة الناجحة للمنشور
+      location.reload(); 
     }else{
       alert("Error: " + message);
       console.log("Error: " + message);
